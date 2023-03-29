@@ -1,2 +1,15 @@
- #获取目标益生菌的功能基因组信息
- prodigal -i xxx.fa -d xxx_genes.fna
+#annotation of functional genome information of target probiotics
+#software:prodigal
+prodigal -i A1.fa -d A1_genes.fna
+
+#get the test.fq sorted.bam
+#software:bowtie2, samtools
+bowtie2-build A1.fa A1.index
+bowtie2 -p 60 -x A1.index --no-mixed --very-sensitive --n-ceil 0,0.01 -U test.fq -S test.sam
+samtools view -bS test.sam -o test.bam
+samtools sort -m 10000000000 test.bam -o test.sorted.bam
+
+#call snv using inStrain
+#software:inStrain
+inStrain profile test.sorted.bam A1.fa -o test.profile -p 60 -g A1_genes.fna
+

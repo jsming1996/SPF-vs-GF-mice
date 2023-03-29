@@ -1,0 +1,2 @@
+ #获取目标益生菌的功能基因组信息
+ prodigal -i xxx.fa -d xxx_genes.fna

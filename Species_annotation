@@ -1,4 +1,4 @@
 # For metagenomic data taxonomy annotation 
-#Software: MetaPhlan3 
+#Software: MetaPhylAn3 
 metaphlan A1.fastq --input_type fastq -o A1_metagenome.txt
 python merge_metaphlan_tables.py *taxa.txt taxa_all.txt

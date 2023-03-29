@@ -13,3 +13,4 @@ samtools sort -m 10000000000 test.bam -o test.sorted.bam
 #software:inStrain
 inStrain profile test.sorted.bam A1.fa -o test.profile -p 60 -g A1_genes.fna
 
+#the SNV information could be found in <path/to/test.profile/test.profile_SNVs.tsv>
